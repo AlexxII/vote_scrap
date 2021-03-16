@@ -2,7 +2,7 @@ const fs = require('fs')
 const iconvlite = require('iconv-lite')
 
 const tiks = require('./const')
-const year = '2011'
+const year = '2018'
 const folderName = `./data/${year}/`
 let allRes = []
 
@@ -51,5 +51,5 @@ for (let key in tiks) {
   }
   allRes.push(result)
 }
-fs.appendFileSync('dataA.json', JSON.stringify(allRes))
+fs.appendFileSync(`${year}.json`, JSON.stringify(allRes))
 console.log('А ВСЕ!');
