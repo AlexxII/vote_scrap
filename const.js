@@ -1,4 +1,4 @@
-cities = {
+tiks = {
   murm: "Мурманск",
   sever: "Североморск",
   kovdor: "Ковдор",
@@ -18,4 +18,4 @@ cities = {
   kolsk: "Кольский район"
 }
 
-module.exports = cities
+module.exports = tiks
