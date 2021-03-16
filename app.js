@@ -2,8 +2,9 @@ const fs = require('fs')
 const iconvlite = require('iconv-lite')
 
 const tiks = require('./const')
-const year = '2018'
+const year = '2011'
 const folderName = `./data/${year}/`
+let allRes = []
 
 for (let key in tiks) {
   const fileName = `${key}.csv`
@@ -50,6 +51,11 @@ for (let key in tiks) {
           })
         }
       }
+      fs.appendFile('dataA.json', JSON.stringify(result), function(errro) {
+        if (error) throw error
+      })
+      // allRes.push(result)
     }
   )
 }
+// fs.writeFileSync('dataA.json', JSON.stringify(allRes))
