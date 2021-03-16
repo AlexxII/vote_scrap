@@ -2,7 +2,7 @@ const fs = require('fs')
 const iconvlite = require('iconv-lite')
 
 const tiks = require('./const')
-const year = '2018'
+const year = '2016'
 const folderName = `./data/${year}/`
 let allRes = []
 
@@ -15,8 +15,10 @@ for (let key in tiks) {
   const strArray = cp1251Text.split('\n')
   let result = {
     tik,
+    count: 0,
     sectors: []
   }
+  let count = 0
   for (let j = 1; j < strArray.length; j++) {
     // попадаются пустые строки
     if (strArray[j] === '') {
@@ -47,8 +49,10 @@ for (let key in tiks) {
         describe: dataArray[1] ? dataArray[1] : null,
         sector
       })
+      count++
     }
   }
+  result.count = count
   allRes.push(result)
 }
 fs.appendFileSync(`${year}.json`, JSON.stringify(allRes))
