@@ -2,7 +2,7 @@ const fs = require('fs')
 const iconvlite = require('iconv-lite')
 const similarity = require('./utils')
 
-const year = '2018'
+const year = '2014'
 const path = `./${year}_flat.json`
 const path2021 = './2021_flat.json'
 
