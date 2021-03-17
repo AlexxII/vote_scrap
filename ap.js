@@ -1,20 +1,23 @@
 const fs = require('fs')
 const iconvlite = require('iconv-lite')
-
 const tiks = require('./const')
-const year = '2016'
+
+
+const year = '2018'
 const folderName = `./data/${year}/`
 let allRes = []
 
 for (let key in tiks) {
   const fileName = `${key}.csv`
   const path = folderName + fileName
+  const tik = tiks[key].title
+  const tikNumber = tiks[key].number
   const data = fs.readFileSync(path)
-  const tik = tiks[key]
   const cp1251Text = iconvlite.decode(data, 'cp1251')
   const strArray = cp1251Text.split('\n')
   let result = {
     tik,
+    number: tikNumber,
     count: 0,
     sectors: []
   }
@@ -46,6 +49,7 @@ for (let key in tiks) {
       const sector = sectors[k].trim()
       result.sectors.push({
         street: dataArray[0],
+        postIndex: '',
         describe: dataArray[1] ? dataArray[1] : null,
         sector
       })
